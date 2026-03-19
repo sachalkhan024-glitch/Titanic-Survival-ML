@@ -37,7 +37,3 @@ I chose the **Random Forest Classifier** over Logistic Regression to better hand
 * Implement **XGBoost** or **LightGBM** for potentially higher accuracy.
 * Extract titles (Mr., Mrs., Master.) from the `Name` column for more granular feature engineering.
 
----
-**Author:** [Your Name]  
-**Location:** Lahore, Pakistan  
-**Connect with me:** [Link to LinkedIn/Upwork]
