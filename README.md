@@ -1,39 +1,29 @@
-# Titanic-Survival-ML
 # Titanic Survival Prediction: Feature Engineering & Random Forest Optimization
 
-![Kaggle Score](https://img.shields.io/badge/Kaggle-0.77033-blue) 
-![Python](https://img.shields.io/badge/Python-3.8+-green)
+### Project Overview
+This repository contains a machine learning pipeline to predict passenger survival for the Titanic dataset. The project focuses on improving predictive power through data cleaning, feature engineering, and model optimization.
 
-## 📌 Project Overview
-This project involves building a predictive model to determine passenger survival during the Titanic shipwreck. The goal was to move beyond basic classification and achieve higher accuracy through **Feature Engineering** and **Hyperparameter Tuning**.
+### Key Results
+* **Verified Kaggle Score:** 0.77033
+* **Local Validation Accuracy:** 83.24%
+* **Model Used:** Random Forest Classifier (100 estimators)
 
-## 🚀 Key Achievements
-* **Final Accuracy:** Achieved **83.24%** local validation accuracy.
-* **Kaggle Global Rank:** Verified public score of **0.77033**.
-* **Feature Innovation:** Created a custom `FamilySize` feature which improved model performance by identifying survival patterns in household groups.
+### Technical Workflow
 
-## 🧠 Technical Workflow
+#### 1. Data Cleaning and Preprocessing
+* **Handled Missing Data:** Used median imputation for "Age" and "Fare" columns to prevent data loss.
+* **Categorical Encoding:** Applied One-Hot Encoding to "Sex" and "Embarked" to convert text into numerical format.
+* **Noise Reduction:** Dropped high-cardinality features like "Ticket," "Cabin," and "Name" to prevent overfitting.
 
-### 1. Data Preprocessing & Cleaning
-* Handled missing values in `Age` and `Fare` using **Median Imputation** to maintain data distribution.
-* Converted categorical variables (`Sex`, `Embarked`) into numerical format using **One-Hot Encoding**.
-* Dropped low-variance features like `PassengerId`, `Name`, and `Ticket` to reduce model noise.
+#### 2. Feature Engineering
+Created a custom **FamilySize** feature by combining "SibSp" (siblings/spouses) and "Parch" (parents/children). 
+* **Insight:** This feature captured the survival advantage of small family units compared to solo travelers or very large groups.
 
-### 2. Feature Engineering
-* **FamilySize:** Combined `SibSp` (siblings/spouses) and `Parch` (parents/children) into a single metric. 
-* *Insight:* Data showed that passengers traveling in small families had a higher survival rate than those traveling alone or in very large groups.
+#### 3. Model Optimization
+The model was built using a **Random Forest Classifier** to capture complex, non-linear patterns in the passenger data.
+* **Optimization:** Tested various depth and estimator settings to reach a stable 83.24% accuracy plateau.
+* **Reproducibility:** Used a fixed random seed (42) to ensure consistent results.
 
-### 3. Model Selection: Random Forest
-I chose the **Random Forest Classifier** over Logistic Regression to better handle non-linear relationships. 
-* **Optimization:** Tested various `n_estimators` and `max_depth` settings to find the "sweet spot" before overfitting.
-* **Final Parameters:** `n_estimators=100`, `random_state=42`.
-
-## 📂 How to Run
-1. Clone the repo: `git clone https://github.com/YOUR_USERNAME/Titanic-Survival-ML.git`
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run the Jupyter Notebook: `jupyter notebook titanic_analysis.ipynb`
-
-## 📈 Future Improvements
-* Implement **XGBoost** or **LightGBM** for potentially higher accuracy.
-* Extract titles (Mr., Mrs., Master.) from the `Name` column for more granular feature engineering.
-
+### Repository Structure
+* **titanic_analysis.ipynb:** The complete Python notebook with data cleaning and model training.
+* **submission.csv:** The final prediction file uploaded to the Kaggle leaderboard.
